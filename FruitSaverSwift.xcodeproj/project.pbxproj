@@ -14,6 +14,7 @@
 		E575304A207BE90200EF041A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5753048207BE90200EF041A /* LaunchScreen.storyboard */; };
 		E5753055207BE90300EF041A /* FruitSaverSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5753054207BE90300EF041A /* FruitSaverSwiftTests.swift */; };
 		E5753060207BE90300EF041A /* FruitSaverSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575305F207BE90300EF041A /* FruitSaverSwiftUITests.swift */; };
+		E575306E207BE94F00EF041A /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E575306D207BE94F00EF041A /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E575305B207BE90300EF041A /* FruitSaverSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitSaverSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E575305F207BE90300EF041A /* FruitSaverSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSaverSwiftUITests.swift; sourceTree = "<group>"; };
 		E5753061207BE90300EF041A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E575306D207BE94F00EF041A /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E5753046207BE90200EF041A /* Assets.xcassets */,
 				E5753048207BE90200EF041A /* LaunchScreen.storyboard */,
 				E575304B207BE90200EF041A /* Info.plist */,
+				E575306D207BE94F00EF041A /* Inceptionv3.mlmodel */,
 			);
 			path = FruitSaverSwift;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5753042207BE90200EF041A /* ViewController.swift in Sources */,
+				E575306E207BE94F00EF041A /* Inceptionv3.mlmodel in Sources */,
 				E5753040207BE90200EF041A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
