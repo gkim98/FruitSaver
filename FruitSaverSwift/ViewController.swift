@@ -51,7 +51,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 fatalError("Request failed")
             }
             
-            print(results)
+            if let firstResult = results.first {
+                if firstResult.identifier.contains("orange") {
+                    self.navigationItem.title = "orange found"
+                } else {
+                    self.navigationItem.title = "Not an orange"
+                }
+            }
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
