@@ -17,6 +17,9 @@
 		E575306E207BE94F00EF041A /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E575306D207BE94F00EF041A /* Inceptionv3.mlmodel */; };
 		E5753070207C0D6C00EF041A /* fruits.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575306F207C0D6C00EF041A /* fruits.swift */; };
 		E5753072207C3EEA00EF041A /* FruitInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5753071207C3EEA00EF041A /* FruitInfoViewController.swift */; };
+		E5753076207CB7D400EF041A /* lime2.png in Resources */ = {isa = PBXBuildFile; fileRef = E5753075207CB7D400EF041A /* lime2.png */; };
+		E5753078207CBE5F00EF041A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5753077207CBE5F00EF041A /* AboutViewController.swift */; };
+		E575307A207CBEEC00EF041A /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = E5753079207CBEEB00EF041A /* question.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		E575306D207BE94F00EF041A /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		E575306F207C0D6C00EF041A /* fruits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fruits.swift; sourceTree = "<group>"; };
 		E5753071207C3EEA00EF041A /* FruitInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitInfoViewController.swift; sourceTree = "<group>"; };
+		E5753075207CB7D400EF041A /* lime2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lime2.png; sourceTree = "<group>"; };
+		E5753077207CBE5F00EF041A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		E5753079207CBEEB00EF041A /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,8 @@
 		E575303E207BE90200EF041A /* FruitSaverSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E5753075207CB7D400EF041A /* lime2.png */,
+				E5753079207CBEEB00EF041A /* question.png */,
 				E575303F207BE90200EF041A /* AppDelegate.swift */,
 				E5753041207BE90200EF041A /* ViewController.swift */,
 				E5753071207C3EEA00EF041A /* FruitInfoViewController.swift */,
@@ -112,6 +120,7 @@
 				E575304B207BE90200EF041A /* Info.plist */,
 				E575306D207BE94F00EF041A /* Inceptionv3.mlmodel */,
 				E575306F207C0D6C00EF041A /* fruits.swift */,
+				E5753077207CBE5F00EF041A /* AboutViewController.swift */,
 			);
 			path = FruitSaverSwift;
 			sourceTree = "<group>";
@@ -241,8 +250,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E575307A207CBEEC00EF041A /* question.png in Resources */,
 				E575304A207BE90200EF041A /* LaunchScreen.storyboard in Resources */,
 				E5753047207BE90200EF041A /* Assets.xcassets in Resources */,
+				E5753076207CB7D400EF041A /* lime2.png in Resources */,
 				E5753045207BE90200EF041A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5753078207CBE5F00EF041A /* AboutViewController.swift in Sources */,
 				E5753070207C0D6C00EF041A /* fruits.swift in Sources */,
 				E5753072207C3EEA00EF041A /* FruitInfoViewController.swift in Sources */,
 				E5753042207BE90200EF041A /* ViewController.swift in Sources */,

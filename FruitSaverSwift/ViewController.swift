@@ -14,8 +14,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // variable for fruit identified
     var fruitIdentified = ""
+    var fruitPic = UIImage()
     
     let imagePicker = UIImagePickerController()
+    @IBOutlet weak var picMessage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let userPickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            fruitPic = userPickedImage
             
             guard let ciimage = CIImage(image: userPickedImage) else {
                 fatalError("Can't convert to CIImage")
@@ -36,7 +39,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             imagePicker.dismiss(animated: true, completion: nil)
 
-            
             // sends image to be processed by CoreML
             detect(image: ciimage)
         }
@@ -56,12 +58,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             
             if let firstResult = results.first {
-                self.fruitIdentified = firstResult.identifier
                 
-                print(self.fruitIdentified)
                 // put present fruit info here
-                
-                self.presentFruitInfo(fruit: self.fruitIdentified)
+                self.presentFruitInfo(fruit: firstResult.identifier)
             }
         }
         
@@ -76,8 +75,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // brings up fruit info screen
     func presentFruitInfo(fruit: String) {
+        var fruitFound = false
         
-        performSegue(withIdentifier: "goToFruitInfo", sender: self)
+        // checks if picture is of a registered fruit
+        for (oneFruit, _) in fruits {
+            if(fruit.contains(oneFruit.lowercased())) {
+                fruitIdentified = oneFruit
+                performSegue(withIdentifier: "goToFruitInfo", sender: self)
+                fruitFound = true
+                break
+            }
+        }
+        
+        // gives feedback depending on if pic is registered
+        picMessage.text = fruitFound ? "Take a produce pic to begin" : "Produce could not be identified"
     }
     
     // passes fruit to the fruit info view controller
@@ -88,6 +99,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let fruitVC = segue.destination as! FruitInfoViewController
             
             fruitVC.fruitType = fruitIdentified
+            fruitVC.fruitPicture = fruitPic
         }
     }
 
@@ -95,6 +107,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func cameraTapped(_ sender: Any) {
         
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    // button pressed for about page
+    @IBAction func aboutPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToAbout", sender: self)
     }
 }
 

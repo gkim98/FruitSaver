@@ -7,42 +7,52 @@
 //
 
 import Foundation
+import UIKit
 
-let h = "high"
-let m = "medium"
-let l = "low"
-let vl = "very low"
-let y = "yes"
-let n = "no"
+let h = "High"
+let m = "Medium"
+let l = "Low"
+let vl = "Very Low"
+let y = "Yes"
+let n = "No"
 
 // first index -> ethylene emitting (high, medium, low, very low, medium)
 // second index -> ethylene sensitive (yes, no)
 
 let fruits = [
-    "apple": [h, y],
-    "apricot": [h, y],
-    "avocado": [h, y], // special case (ripe v unripe hardcode)
-    "banana": [l, y], // also special case
-    "cherry": [vl, n],
-    "cucumber": [vl, y],
-    "grapefruit": [vl, n],
-    "grape": [vl, y],
-    "kiwi": [h, y], // special case,
-    "lemon": [vl, n],
-    "mango": [m, y],
-    "orange": [vl, n],
-    "peach": [h, y],
-    "pear": [h, y],
-    "pineapple": [vl, n],
-    "strawberry": [vl, n],
-    "tomato": [m, n], //special case
-    "coconut": [n, n],
-    "corn": [n, n],
-    "garlic": [n, n],
-    "onion": [n, n],
-    "broccoli": [n, y],
-    "cabbage": [n, y],
-    "carrot": [n, y],
-    "lettuce": [n, y],
-    "potato": [n, y]
+    "Granny Smith": [h, y],
+    "Apricot": [h, y],
+    "Avocado": [h, y], // special case (ripe v unripe hardcode)
+    "Banana": [m, y], // also special case
+    "Cherry": [vl, n],
+    "Cucumber": [vl, y],
+    "Grapefruit": [vl, n],
+    "Grape": [vl, y],
+    "Kiwi": [h, y], // special case,
+    "Lemon": [vl, n],
+    "Mango": [m, y],
+    "Orange": [vl, n],
+    "Peach": [h, y],
+    "Pear": [h, y],
+    "Pineapple": [vl, n],
+    "Strawberry": [vl, n],
+    "Tomato": [m, n], //special case
+    "Coconut": [n, n],
+    "Corn": [n, n],
+    "Garlic": [n, n],
+    "Onion": [n, n],
+    "Broccoli": [n, y],
+    "Cabbage": [n, y],
+    "Carrot": [n, y],
+    "Lettuce": [n, y],
+    "Potato": [n, y]
+]
+
+let colorMapping = [
+    "High": UIColor(red: 233/255.0, green: 89/255.0, blue: 66/255.0, alpha: 1),
+    "Medium": UIColor(red: 241/255.0, green: 238/255.0, blue: 98/255.0, alpha: 1),
+    "Low": UIColor(red: 69/255.0, green: 193/255.0, blue: 62/255.0, alpha: 1),
+    "Very Low": UIColor(red: 76/255.0, green: 160/255.0, blue: 72/255.0, alpha: 1),
+    "Yes": UIColor(red: 233/255.0, green: 89/255.0, blue: 66/255.0, alpha: 1),
+    "No": UIColor(red: 76/255.0, green: 160/255.0, blue: 72/255.0, alpha: 1)
 ]
