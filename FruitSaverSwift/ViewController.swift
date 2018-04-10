@@ -12,7 +12,8 @@ import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var fruitImage: UIImageView!
+    // variable for fruit identified
+    var fruitIdentified = ""
     
     let imagePicker = UIImagePickerController()
     
@@ -22,41 +23,45 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
         imagePicker.allowsEditing = false
-        
     }
     
     // user chose an image --> do something with it
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let userPickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            fruitImage.image = userPickedImage
             
             guard let ciimage = CIImage(image: userPickedImage) else {
                 fatalError("Can't convert to CIImage")
             }
             
+            imagePicker.dismiss(animated: true, completion: nil)
+
+            
+            // sends image to be processed by CoreML
             detect(image: ciimage)
         }
-        imagePicker.dismiss(animated: true, completion: nil)
-        
     }
     
     func detect(image: CIImage) {
+        
+        // load Inception model
         guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else {
             fatalError("Loading model failed")
         }
         
+        // make a request to classify the photo
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let results = request.results as? [VNClassificationObservation] else {
                 fatalError("Request failed")
             }
             
             if let firstResult = results.first {
-                if firstResult.identifier.contains("orange") {
-                    self.navigationItem.title = "orange found"
-                } else {
-                    self.navigationItem.title = "Not an orange"
-                }
+                self.fruitIdentified = firstResult.identifier
+                
+                print(self.fruitIdentified)
+                // put present fruit info here
+                
+                self.presentFruitInfo(fruit: self.fruitIdentified)
             }
         }
         
@@ -68,13 +73,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print(error)
         }
     }
-
-    @IBAction func cameraTapped(_ sender: Any) {
-        // presents camera to the user
-        present(imagePicker, animated: true, completion: nil)
+    
+    // brings up fruit info screen
+    func presentFruitInfo(fruit: String) {
+        
+        performSegue(withIdentifier: "goToFruitInfo", sender: self)
     }
     
+    // passes fruit to the fruit info view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToFruitInfo" {
+            
+            let fruitVC = segue.destination as! FruitInfoViewController
+            
+            fruitVC.fruitType = fruitIdentified
+        }
+    }
 
-
+    // presents camera to the user
+    @IBAction func cameraTapped(_ sender: Any) {
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
 }
 
